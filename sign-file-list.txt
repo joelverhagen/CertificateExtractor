@@ -1,1 +1,1 @@
-**/*NuGet.CertificateExtractor*
+**/Knapcode.CertificateExtractor*
