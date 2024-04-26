@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<RootNamespace>Knapcode.CertificateExtractor</RootNamespace>
+	</PropertyGroup>
+	
+	<PropertyGroup>
+		<PackageId>Knapcode.CertificateExtractor</PackageId>
+		<Version>0.1.0</Version>
+
+		<ToolCommandName>nuget-cert-extractor</ToolCommandName>
+		<PackAsTool>true</PackAsTool>
+
+		<Authors>Joel Verhagen</Authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Description>A tool to extract certificate files from NuGet packages.</Description>
+		<PackageReleaseNotes>
+			- Initial release
+		</PackageReleaseNotes>
+		<PackageProjectUrl>https://github.com/joelverhagen/CertificateExtractor</PackageProjectUrl>
+
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<IncludeSymbols>true</IncludeSymbols>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="NuGet.Commands" Version="6.9.1" />
+		<PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
+		<PackageReference Include="Serilog.Extensions.Hosting" Version="8.0.0" />
+		<PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
+		<PackageReference Include="System.CommandLine.Hosting" Version="0.4.0-alpha.22272.1" />
+	</ItemGroup>
+
+</Project>
