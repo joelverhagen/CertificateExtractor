@@ -13,7 +13,7 @@
 
 	<PropertyGroup>
 		<PackageId>Knapcode.CertificateExtractor</PackageId>
-		<Version>0.1.0</Version>
+		<Version>0.1.1</Version>
 
 		<ToolCommandName>nuget-cert-extractor</ToolCommandName>
 		<PackAsTool>true</PackAsTool>
@@ -21,9 +21,9 @@
 		<Authors>Joel Verhagen</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<Description>A tool to extract certificate files from NuGet packages.</Description>
+		<Description>A tool to extract certificate files from NuGet packages. Contains the nuget-cert-extractor .NET CLI tool.</Description>
 		<PackageReleaseNotes>
-			- Initial release
+			- Fix up README
 		</PackageReleaseNotes>
 		<PackageProjectUrl>https://github.com/joelverhagen/CertificateExtractor</PackageProjectUrl>
 

@@ -1,4 +1,4 @@
-# CertificateExtractor (nuget-cert-extractor)
+# Knapcode.CertificateExtractor (nuget-cert-extractor)
 
 A tool to extract certificate files from NuGet packages.
 
