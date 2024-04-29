@@ -18,7 +18,7 @@ Extract the code signing leaf certificate from a .nupkg.
 nuget-cert-extractor --file "MyPackage.0.1.0.nupkg" --output . --code-signing --author --leaf
 ```
 
-If the package has an author signature, a single .cer file will be written to the `--output` directory with the file name `{SHA1 fingerprint}.crt`.
+If the package has an author signature, a single .cer file will be written to the `--output` directory with the file name `{SHA1 fingerprint}.cer`.
 
 Extract all certificates in PEM format.
 
