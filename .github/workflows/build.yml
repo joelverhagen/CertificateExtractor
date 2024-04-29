@@ -15,10 +15,10 @@ jobs:
           - windows-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
 
@@ -67,7 +67,7 @@ jobs:
         $nupkg = gci artifacts\*.nupkg
         nuget-cert-extractor --file $nupkg --output artifacts --code-signing --author --leaf
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       name: Upload artifacts
       with:
         name: ${{ matrix.os }}-artifacts
