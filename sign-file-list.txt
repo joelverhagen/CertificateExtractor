@@ -1,1 +1,1 @@
-**/Knapcode.CertificateExtractor*
+**/Knapcode.CertificateExtractor.*

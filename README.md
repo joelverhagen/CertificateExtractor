@@ -30,7 +30,11 @@ nuget-cert-extractor --file "MyPackage.0.1.0.nupkg" --output . --all --format PE
 
 ```plaintext
 Description:
-  A tool to extract certificate files from NuGet packages.
+  This is a CLI tool to extract certificate files from NuGet packages.
+
+  Use a combination of options to filter in (include) categories of certificates
+  contained in a package that should be extracted. If no options are provided, no
+  certificates will be extracted.
 
   The values that can be specified by the --format option are:
   CER: This is a binary reprenstation of the ASN.1 using DER encoding. The file
@@ -42,22 +46,22 @@ Usage:
   nuget-cert-extractor [options]
 
 Options:
+  --file <file> (REQUIRED)      A file path for an input .nupkg.
+  --output <output> (REQUIRED)  A destination directory for writing extracted
+                                certificates to
+  --format <CER|PEM>            The format to use for writing certificate files
+                                [default: CER]
+  --all                         Extract all certificates
+  --author                      Extract certificates used in the author signature
+  --repository                  Extract certificates used in the repository signature
+  --leaf                        Extract leaf certificates
+  --intermediate                Extract intermediate certificates
+  --root                        Extract root certificates
+  --code-signing                Extract certificates used in code sign signatures
+  --timestamping                Extract certificates used in timestamp signatures
   --log-level <level>           The minimum log level to display. Possible values:
                                 Verbose, Debug, Information, Warning, Error, Fatal
                                 [default: Information]
-  --file <file> (REQUIRED)      A file path for an input .nupkg.
-  --output <output> (REQUIRED)  A destination directory for writing extracted
-                                certificates to.
-  --format <CER|PEM>            The format to use for writing certificate files.
-                                [default: CER]
-  --all                         Extract all certificates.
-  --author                      Extract certificates used in the author signature.
-  --repository                  Extract certificates used in the repository signature.
-  --leaf                        Extract leaf certificates.
-  --intermediate                Extract intermediate certificates.
-  --root                        Extract root certificates.
-  --code-signing                Extract certificates used in the repository signature.
-  --timestamping                Extract certificates used in the repository signature.
   -?, -h, --help                Show help and usage information
   --version                     Show version information
 ```

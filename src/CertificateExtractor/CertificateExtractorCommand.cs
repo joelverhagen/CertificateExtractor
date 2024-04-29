@@ -24,20 +24,16 @@ public class CertificateExtractorCommand : RootCommand
 
     public CertificateExtractorCommand() : base(
         $"""
-        A tool to extract certificate files from NuGet packages.
+        This is a CLI tool to extract certificate files from NuGet packages.
+
+        Use a combination of options to filter in (include) categories of certificates contained in a package that should be extracted. If no options are provided, no certificates will be extracted.
         
         The values that can be specified by the {FormatOption} option are:
         CER: This is a binary reprenstation of the ASN.1 using DER encoding. The file extension will be ".cer".
         PEM: This is a PEM encoding, which is essentially base64 representation of the DER encoded ASN.1. The file extension will be ".pem".
         """)
     {
-        AddGlobalOption(new Option<LogEventLevel>(
-            "--log-level",
-            () => LogEventLevel.Information,
-            "The minimum log level to display. Possible values: " + string.Join(", ", Enum.GetNames<LogEventLevel>()))
-        {
-            ArgumentHelpName = "level",
-        });
+        Name = "nuget-cert-extractor";
 
         AddOption(new Option<FileInfo?>(
             name: "--file",
@@ -48,7 +44,7 @@ public class CertificateExtractorCommand : RootCommand
 
         AddOption(new Option<DirectoryInfo?>(
             name: "--output",
-            description: "A destination directory for writing extracted certificates to.")
+            description: "A destination directory for writing extracted certificates to")
         {
             IsRequired = true,
         });
@@ -56,39 +52,47 @@ public class CertificateExtractorCommand : RootCommand
         AddOption(new Option<CertificateFormat>(
             name: FormatOption,
             () => CertificateFormat.CER,
-            description: $"The format to use for writing certificate files."));
+            description: $"The format to use for writing certificate files"));
 
         AddOption(new Option<bool>(
             name: AllOption,
-            description: "Extract all certificates."));
+            description: "Extract all certificates"));
 
         AddOption(new Option<bool>(
             name: "--author",
-            description: "Extract certificates used in the author signature."));
+            description: "Extract certificates used in the author signature"));
 
         AddOption(new Option<bool>(
             name: "--repository",
-            description: "Extract certificates used in the repository signature."));
+            description: "Extract certificates used in the repository signature"));
 
         AddOption(new Option<bool>(
             name: "--leaf",
-            description: "Extract leaf certificates."));
+            description: "Extract leaf certificates"));
 
         AddOption(new Option<bool>(
             name: "--intermediate",
-            description: "Extract intermediate certificates."));
+            description: "Extract intermediate certificates"));
 
         AddOption(new Option<bool>(
             name: "--root",
-            description: "Extract root certificates."));
+            description: "Extract root certificates"));
 
         AddOption(new Option<bool>(
             name: "--code-signing",
-            description: "Extract certificates used in the repository signature."));
+            description: "Extract certificates used in code sign signatures"));
 
         AddOption(new Option<bool>(
             name: "--timestamping",
-            description: "Extract certificates used in the repository signature."));
+            description: "Extract certificates used in timestamp signatures"));
+
+        AddGlobalOption(new Option<LogEventLevel>(
+            "--log-level",
+            () => LogEventLevel.Information,
+            "The minimum log level to display. Possible values: " + string.Join(", ", Enum.GetNames<LogEventLevel>()))
+        {
+            ArgumentHelpName = "level",
+        });
     }
 
     public new class Handler : ICommandHandler
